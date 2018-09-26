@@ -1,0 +1,125 @@
+{% extends "./_base.html" %}
+{% block content %}
+    {% load crispy_forms_tags %}
+    <div class="container">
+        <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">検索条件</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form id="filter" method="get">
+                        <div class="modal-body">
+                            {{ filter.form|crispy }}
+                        </div>
+                    </form>
+                    <div class="modal-footer">
+                        <a class="btn btn-outline-dark" data-dismiss="modal">戻る</a>
+                        <button type="submit" class="btn btn-outline-dark" form="filter">検索</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <a class="btn btn-secondary filtered" style="visibility:hidden" href="/?page=1">検索を解除</a>
+                <div class="float-right mt-1">
+                    <a class="btn btn-outline-dark" href="{% url 'create' %}">新規</a>
+                    <a class="btn btn-outline-dark" data-toggle="modal" data-target="#myModal" href="#">検索</a>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-10 mx-auto">
+                {% include "./_pagination.html" %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <ul class="list-group">
+                    {% for item in item_list %}
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-5 col-sm-3">
+                                    <p>1_文字列</p>
+                                </div>
+                                <div class="col-7 col-sm-9">
+                                    <p>{{ item.sample_1|default_if_none:"未入力" }}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-5 col-sm-3">
+                                    <p>2_数値</p>
+                                </div>
+                                <div class="col-7 col-sm-9">
+                                    <p>{{ item.sample_2|default_if_none:"未入力" }}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-5 col-sm-3">
+                                    <p>3_ブール値</p>
+                                </div>
+                                <div class="col-7 col-sm-9">
+                                    <p>{{ item.sample_3|yesno:"はい,いいえ" }}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-5 col-sm-3">
+                                    <p>4_選択肢</p>
+                                </div>
+                                <div class="col-7 col-sm-9">
+                                    <p>{{ item.get_sample_4_display|default_if_none:"未入力" }}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-5 col-sm-3">
+                                    <p>更新者</p>
+                                </div>
+                                <div class="col-7 col-sm-9">
+                                    <p>{{ item.updated_by.get_full_name }}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-5 col-sm-3">
+                                    <p>更新時間</p>
+                                </div>
+                                <div class="col-7 col-sm-9">
+                                    <p>{{ item.updated_at|date:"Y/m/d G:i:s" }}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="float-right">
+                                        <a class="btn btn-outline-dark " href="{% url 'detail' item.pk %}">詳細</a>
+                                        <a class="btn btn-outline-dark " href="{% url 'update' item.pk %}">編集</a>
+                                        <a class="btn btn-outline-dark " href="{% url 'delete' item.pk %}">削除</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    {% empty %}
+                        <li class="list-group-item">
+                            対象のデータがありません
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-10 mx-auto">
+                {% include "./_pagination.html" %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="float-right mt-1 mb-3">
+                    <a class="btn btn-outline-dark" href="{% url 'create' %}">新規</a>
+                    <a class="btn btn-outline-dark" data-toggle="modal" data-target="#myModal" href="#">検索</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
