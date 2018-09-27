@@ -5,7 +5,7 @@ instant-django
 モデル(app/models.py)の編集とマイグレーション、データ表示の変更だけで自分用のアプリケーションとして使うことができます。
 使い方等は以下の記事を参照してください。
 
-[Qiita: 非プログラマーのための Webアプリお手軽開発法](https://qiita.com/okoppe8/items/4cc0f87ea933749f5a49)
+[Qiita: [Python] テンプレートアプリを使った業務用Webアプリケーション高速開発法の紹介【チュートリアル形式】](https://qiita.com/okoppe8/items/4cc0f87ea933749f5a49)
 
 
 Instant-django is a practical sample project of Django.
