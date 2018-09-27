@@ -1,17 +1,18 @@
 instant-django
 ====
 
+簡単なCRUD操作を行うDjangoのアプリケーションです。
+モデル(app/models.py)の編集とマイグレーション、データ表示の変更だけで自分用のアプリケーションとして使うことができます。
+使い方等は以下の記事を参照してください。
+
+http://qiita.com/okoppe8/dummy
+
+
 Instant-django is a practical sample project of Django.
 
 Instant-django has a sample model and basic CRUD views.
 
 You can complete a simple CRUD WebApp with a few edits and commands.
-
-
-日本語での使い方の説明は以下の記事を参照してください。
-
-http://qiita.com/okoppe8/dummy
-
 
 ## Requirement
 
@@ -37,9 +38,7 @@ If you use it production environment, you must replace `settings.SECRET_KEY`.
 
 I wrote this for Japanese python beginners.
 
-I would appreciate if you clone this project and replace japanese code
-
-with your language for your country's python beginners.
+I would appreciate if you clone this project and replace japanese code with your language for your country's python beginners.
 
 ## Licence
 
