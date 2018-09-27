@@ -46,6 +46,13 @@ class Item(models.Model):
         null=True,
     )
 
+    # サンプル項目5 日付
+    sample_5 = models.DateField(
+        verbose_name='サンプル項目5 日付',
+        blank=True,
+        null=True,
+    )
+
     # 以下、管理項目
 
     # 作成者(ユーザー)

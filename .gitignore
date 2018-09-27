@@ -5,6 +5,7 @@ __pycache__
 *.pot
 *.pyc
 *.py[co]
+local_settings.py
 db.sqlite3
 env
 media
