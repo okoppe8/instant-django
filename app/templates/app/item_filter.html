@@ -42,6 +42,7 @@
                 <ul class="list-group">
                     {% for item in item_list %}
                         <li class="list-group-item">
+                            {# item_detail_contents.html を参考に必要な項目を追加してください #}
                             <div class="row">
                                 <div class="col-5 col-sm-3">
                                     <p>1_文字列</p>
@@ -52,7 +53,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-5 col-sm-3">
-                                    <p>2_数値</p>
+                                    <p>2_メモ</p>
                                 </div>
                                 <div class="col-7 col-sm-9">
                                     <p>{{ item.sample_2|default_if_none:"未入力" }}</p>
@@ -60,42 +61,26 @@
                             </div>
                             <div class="row">
                                 <div class="col-5 col-sm-3">
-                                    <p>3_ブール値</p>
+                                    <p>3_整数</p>
                                 </div>
                                 <div class="col-7 col-sm-9">
-                                    <p>{{ item.sample_3|yesno:"はい,いいえ" }}</p>
+                                    <p>{{ item.sample_3|default_if_none:"未入力" }}</p>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-5 col-sm-3">
-                                    <p>4_選択肢</p>
+                                    <p>作成者</p>
                                 </div>
                                 <div class="col-7 col-sm-9">
-                                    <p>{{ item.get_sample_4_display|default_if_none:"未入力" }}</p>
+                                    <p>{{ item.created_by.get_full_name }}</p>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-5 col-sm-3">
-                                    <p>5_日付</p>
+                                    <p>作成時間</p>
                                 </div>
                                 <div class="col-7 col-sm-9">
-                                     <p>{{ item.sample_5|date:"Y年m月d日" }}</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-5 col-sm-3">
-                                    <p>更新者</p>
-                                </div>
-                                <div class="col-7 col-sm-9">
-                                    <p>{{ item.updated_by.get_full_name }}</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-5 col-sm-3">
-                                    <p>更新時間</p>
-                                </div>
-                                <div class="col-7 col-sm-9">
-                                    <p>{{ item.updated_at|date:"Y/m/d G:i:s" }}</p>
+                                    <p>{{ item.created_at|date:"Y/m/d G:i:s" }}</p>
                                 </div>
                             </div>
                             <div class="row">

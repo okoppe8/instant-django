@@ -41,4 +41,10 @@ class ItemFilterSet(django_filters.FilterSet):
                     'lookup_expr': 'icontains',
                 },
             },
+            models.TextField: {
+                'filter_class': django_filters.CharFilter,
+                'extra': lambda f: {
+                    'lookup_expr': 'icontains',
+                },
+            },
         }

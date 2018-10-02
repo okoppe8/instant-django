@@ -2,6 +2,9 @@ $(function () {
 
     // jQueryコード
 
+    // 時間系フィールドにはbootstrap-datepickerよbootstrap-datetimepickerの利用を推奨します。
+    // 参考 https://pypi.org/project/django-tempus-dominus/
+
     // Bootstrap Datepicker
     $('.dateinput').datepicker({
         todayBtn: 'linked',
@@ -10,6 +13,10 @@ $(function () {
         autoclose: true,
         todayHighlight: true,
     });
+    $('.dateinput').attr('placeholder','YYYY-MM-DD');
+
+    $('.datetimeinput').attr('placeholder','YYYY-MM-DD HH:MM:SS');
+
 
     // 入力フォームでリターンキー押下時の送信を無効化
     // ※フィールド１個の時は無効
